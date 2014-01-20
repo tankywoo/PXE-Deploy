@@ -1,0 +1,23 @@
+########
+# Ref: http://www.syslinux.org/wiki/index.php/SYSLINUX#How_do_I_Configure_SYSLINUX.3F
+########
+
+# Default boot option to use
+DEFAULT menu.c32
+MENU TITLE PXE
+
+prompt 0
+
+# Timeout in units of 1/10 s
+TIMEOUT 100
+
+LABEL Ubuntu/12.04
+    MENU LABEL Ububtu/12.04
+    KERNEL linux
+    APPEND vga=normal initrd=initrd.gz ks=http://192.168.0.150/ubuntu/12.04/ks.cfg
+
+MENU SEPARATOR
+
+LABEL localboot
+    LOCALBOOT 0x80
+    MENU LABEL ^Boot from local disk
